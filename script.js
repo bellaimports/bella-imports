@@ -1,4 +1,4 @@
-const numeroWhatsApp = "5517997332057";
+const numeroWhatsApp = "5517999999999";
 
 const searchInput = document.getElementById("searchInput");
 const categoryFilter = document.getElementById("categoryFilter");
@@ -86,7 +86,8 @@ function abrirModal(produto) {
     produto.nome || "Produto";
 
   document.getElementById("clienteNome").value = "";
-  document.getElementById("clienteTelefone").value = "";
+  document.getElementById("clienteCidade").value = "";
+  document.getElementById("clienteEstado").value = "";
 
   const pixRadio = document.querySelector(
     'input[name="formaPagamento"][value="PIX"]'
@@ -107,7 +108,8 @@ function enviarPedidoWhatsApp() {
   if (!produtoSelecionado) return;
 
   const nome = document.getElementById("clienteNome").value.trim();
-  const telefone = document.getElementById("clienteTelefone").value.trim();
+  const cidade = document.getElementById("clienteCidade").value.trim();
+  const estado = document.getElementById("clienteEstado").value;
 
   const pagamentoSelecionado = document.querySelector(
     'input[name="formaPagamento"]:checked'
@@ -117,8 +119,8 @@ function enviarPedidoWhatsApp() {
     ? pagamentoSelecionado.value
     : "Não informado";
 
-  if (!nome || !telefone) {
-    alert("Preencha nome e telefone antes de enviar.");
+  if (!nome || !cidade || !estado) {
+    alert("Preencha nome, cidade e estado antes de enviar.");
     return;
   }
 
@@ -128,7 +130,8 @@ Produto: ${produtoSelecionado.nome}
 
 Dados do cliente:
 Nome: ${nome}
-Telefone: ${telefone}
+Cidade: ${cidade}
+Estado: ${estado}
 
 Forma de pagamento escolhida:
 ${pagamento}
