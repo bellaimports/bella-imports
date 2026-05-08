@@ -70,6 +70,7 @@ function renderizarProdutos(lista) {
     card.addEventListener("click", () => abrirModal(produto));
 
     const botao = card.querySelector("button");
+
     botao.addEventListener("click", (evento) => {
       evento.stopPropagation();
       abrirModal(produto);
@@ -82,12 +83,26 @@ function renderizarProdutos(lista) {
 function abrirModal(produto) {
   produtoSelecionado = produto;
 
-  document.getElementById("modalProdutoNome").innerText =
-    produto.nome || "Produto";
+  const modalProdutoNome = document.getElementById("modalProdutoNome");
+  const clienteNome = document.getElementById("clienteNome");
+  const clienteCidade = document.getElementById("clienteCidade");
+  const clienteEstado = document.getElementById("clienteEstado");
 
-  document.getElementById("clienteNome").value = "";
-  document.getElementById("clienteCidade").value = "";
-  document.getElementById("clienteEstado").value = "";
+  if (modalProdutoNome) {
+    modalProdutoNome.innerText = produto.nome || "Produto";
+  }
+
+  if (clienteNome) {
+    clienteNome.value = "";
+  }
+
+  if (clienteCidade) {
+    clienteCidade.value = "";
+  }
+
+  if (clienteEstado) {
+    clienteEstado.value = "";
+  }
 
   const pixRadio = document.querySelector(
     'input[name="formaPagamento"][value="PIX"]'
@@ -107,9 +122,9 @@ function fecharModal() {
 function enviarPedidoWhatsApp() {
   if (!produtoSelecionado) return;
 
-  const nome = document.getElementById("clienteNome").value.trim();
-  const cidade = document.getElementById("clienteCidade").value.trim();
-  const estado = document.getElementById("clienteEstado").value;
+  const nome = document.getElementById("clienteNome")?.value.trim() || "";
+  const cidade = document.getElementById("clienteCidade")?.value.trim() || "";
+  const estado = document.getElementById("clienteEstado")?.value || "";
 
   const pagamentoSelecionado = document.querySelector(
     'input[name="formaPagamento"]:checked'
