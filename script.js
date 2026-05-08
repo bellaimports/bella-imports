@@ -1,4 +1,4 @@
-const numeroWhatsApp = "5517999999999";
+const numeroWhatsApp = "5517997332057";
 
 const searchInput = document.getElementById("searchInput");
 const categoryFilter = document.getElementById("categoryFilter");
