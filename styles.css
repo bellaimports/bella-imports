@@ -647,7 +647,7 @@ footer {
 /* CARD SUPORTE */
 
 .support-card-section {
-  padding: 30px 6% 70px;
+  padding: 20px 6% 0;
   background: var(--gray);
 }
 

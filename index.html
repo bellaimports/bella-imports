@@ -3,100 +3,191 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Bella Imports</title>
+
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
 
   <header class="topbar">
+
     <div class="logo-img">
-      <img src="imagens/logo-bella-imports.png" alt="Bella Imports">
+      <img
+        src="imagens/logo-bella-imports.png"
+        alt="Bella Imports"
+      >
     </div>
 
     <nav>
       <a href="#">Início</a>
       <a href="#produtos">Produtos</a>
-      <a href="#ofertas">Ofertas</a>
-      <a href="#contato">Contato</a>
     </nav>
 
-    <button class="whatsapp-btn" onclick="abrirWhatsAppGeral()">WhatsApp</button>
+    <button
+      class="whatsapp-btn"
+      onclick="abrirWhatsAppGeral()"
+    >
+      WhatsApp
+    </button>
+
   </header>
 
   <section class="hero">
+
     <div class="hero-content">
-      <p class="tag">Catálogo premium</p>
-      <h1>Importados selecionados com atendimento rápido pelo WhatsApp</h1>
+
+      <p class="tag">
+        Catálogo premium
+      </p>
+
+      <h1>
+        Importados selecionados com atendimento rápido pelo WhatsApp
+      </h1>
+
       <p>
         Consulte disponibilidade, valores e condições diretamente com nossa equipe.
         Produtos escolhidos com curadoria, praticidade e estilo.
       </p>
 
       <div class="hero-actions">
-        <a href="#produtos" class="primary-btn">Ver produtos</a>
+
         <a
-  href="https://chat.whatsapp.com/CYGgloy5VpfH5eQVdSyljq?mode=gi_t"
-  class="secondary-btn"
-  target="_blank"
->
-  Entre no Club
-</a>
+          href="#produtos"
+          class="primary-btn"
+        >
+          Ver produtos
+        </a>
+
+        <a
+          href="https://chat.whatsapp.com/CYGgloy5VpfH5eQVdSyljq?mode=gi_t"
+          class="secondary-btn"
+          target="_blank"
+        >
+          Entre no Club
+        </a>
+
       </div>
+
     </div>
 
     <div class="hero-image">
-      <img src="imagens/banner-fashion.png" alt="Bella Imports Banner">
+      <img
+        src="imagens/banner-fashion.png"
+        alt="Bella Imports Banner"
+      >
     </div>
+
+  </section>
+
+  <section
+    class="banner-grid"
+    id="ofertas"
+  >
+
+    <div class="banner">
+      Banner 1
+    </div>
+
+    <div class="banner">
+      Banner 2
+    </div>
+
+    <div class="banner">
+      Banner 3
+    </div>
+
   </section>
 
   <section class="controls">
-    <input type="text" id="searchInput" placeholder="Buscar produto..." />
+
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Buscar produto..."
+    />
 
     <select id="categoryFilter">
-      <option value="todos">Todas as categorias</option>
-      <option value="sem-categoria">Sem categoria</option>
-      <option value="perfumes">Perfumes</option>
-      <option value="celulares">Celulares</option>
-      <option value="notebooks">Notebooks</option>
-      <option value="games">Games</option>
-      <option value="acessorios">Acessórios</option>
+
+      <option value="todos">
+        Todas as categorias
+      </option>
+
+      <option value="sem-categoria">
+        Sem categoria
+      </option>
+
+      <option value="perfumes">
+        Perfumes
+      </option>
+
+      <option value="celulares">
+        Celulares
+      </option>
+
+      <option value="notebooks">
+        Notebooks
+      </option>
+
+      <option value="games">
+        Games
+      </option>
+
+      <option value="acessorios">
+        Acessórios
+      </option>
+
     </select>
+
   </section>
 
-  <main class="products-section" id="produtos">
-    <h2>Produtos em destaque</h2>
-    <div class="products-grid" id="productsGrid"></div>
-  </main>
-
-  <footer id="contato">
-<section class="support-card-section">
-
-  <div class="support-card">
-
-    <span class="support-tag">
-      Atendimento
-    </span>
+  <main
+    class="products-section"
+    id="produtos"
+  >
 
     <h2>
-      Não encontrou o que procura?
+      Produtos em destaque
     </h2>
 
-    <p>
-      Alguns produtos podem estar não listados no site.
-    </p>
+    <div
+      class="products-grid"
+      id="productsGrid"
+    ></div>
 
-    <a
-      href="https://wa.me/5517999999999?text=Ol%C3%A1%2C%20vim%20do%20Site!"
-      class="support-whatsapp-btn"
-      target="_blank"
-    >
-      Atendimento Por WhatsApp
-    </a>
+  </main>
 
-  </div>
-</section>
+  <section class="support-card-section">
+
+    <div class="support-card">
+
+      <span class="support-tag">
+        Atendimento
+      </span>
+
+      <h2>
+        Não encontrou o que procura?
+      </h2>
+
+      <p>
+        Alguns produtos podem estar não listados no site.
+      </p>
+
+      <a
+        href="https://wa.me/5517997332057?text=Ol%C3%A1%2C%20vim%20do%20Site!"
+        class="support-whatsapp-btn"
+        target="_blank"
+      >
+        Atendimento Por WhatsApp
+      </a>
+
+    </div>
+
+  </section>
 
   <section class="info-section">
+
     <div>
       <h3>Atendimento rápido</h3>
       <p>Pedidos e dúvidas diretamente pelo WhatsApp.</p>
@@ -111,41 +202,97 @@
       <h3>Consulta de disponibilidade</h3>
       <p>Confirmação antes de finalizar qualquer pedido.</p>
     </div>
+
   </section>
 
+  <footer id="contato">
+
     <div class="logo-img footer-logo">
-      <img src="imagens/logo-bella-imports.png" alt="Bella Imports">
+
+      <img
+        src="imagens/logo-bella-imports.png"
+        alt="Bella Imports"
+      >
+
     </div>
 
-    <p>Catálogo online com atendimento personalizado.</p>
-    <p>© 2026 - Bella Imports. Todos os direitos reservados.</p>
+    <p>
+      Catálogo online com atendimento personalizado.
+    </p>
+
+    <p>
+      © 2026 - Bella Imports. Todos os direitos reservados.
+    </p>
+
   </footer>
 
-  <div class="modal-overlay" id="pedidoModal">
-    <div class="pedido-modal">
-      <button class="fechar-modal" type="button" onclick="fecharModal()">×</button>
+  <div
+    class="modal-overlay"
+    id="pedidoModal"
+  >
 
-      <span class="modal-tag">Solicitação de produto</span>
-      <h2 id="modalProdutoNome">Produto</h2>
+    <div class="pedido-modal">
+
+      <button
+        class="fechar-modal"
+        type="button"
+        onclick="fecharModal()"
+      >
+        ×
+      </button>
+
+      <span class="modal-tag">
+        Solicitação de produto
+      </span>
+
+      <h2 id="modalProdutoNome">
+        Produto
+      </h2>
 
       <p class="modal-texto">
         Preencha seus dados para enviar a solicitação pelo WhatsApp.
       </p>
 
       <div class="form-group">
-        <label for="clienteNome">Nome</label>
-        <input type="text" id="clienteNome" placeholder="Digite seu nome">
+
+        <label for="clienteNome">
+          Nome
+        </label>
+
+        <input
+          type="text"
+          id="clienteNome"
+          placeholder="Digite seu nome"
+        >
+
       </div>
 
       <div class="form-group">
-        <label for="clienteCidade">Cidade</label>
-        <input type="text" id="clienteCidade" placeholder="Digite sua cidade">
+
+        <label for="clienteCidade">
+          Cidade
+        </label>
+
+        <input
+          type="text"
+          id="clienteCidade"
+          placeholder="Digite sua cidade"
+        >
+
       </div>
 
       <div class="form-group">
-        <label for="clienteEstado">Estado</label>
+
+        <label for="clienteEstado">
+          Estado
+        </label>
+
         <select id="clienteEstado">
-          <option value="">Selecione o estado</option>
+
+          <option value="">
+            Selecione o estado
+          </option>
+
           <option value="AC">Acre</option>
           <option value="AL">Alagoas</option>
           <option value="AP">Amapá</option>
@@ -173,69 +320,133 @@
           <option value="SP">São Paulo</option>
           <option value="SE">Sergipe</option>
           <option value="TO">Tocantins</option>
+
         </select>
+
       </div>
 
       <div class="form-group">
-        <label>Forma de pagamento</label>
+
+        <label>
+          Forma de pagamento
+        </label>
 
         <div class="payment-options">
+
           <label class="payment-card">
-            <input type="radio" name="formaPagamento" value="PIX" checked>
+
+            <input
+              type="radio"
+              name="formaPagamento"
+              value="PIX"
+              checked
+            >
+
             <div class="payment-content">
-              <span class="payment-icon">💠</span>
+
+              <span class="payment-icon">
+                💠
+              </span>
+
               <div>
                 <strong>PIX</strong>
                 <small>Pagamento instantâneo</small>
               </div>
+
             </div>
+
           </label>
 
           <label class="payment-card">
-            <input type="radio" name="formaPagamento" value="Cartão de Crédito">
+
+            <input
+              type="radio"
+              name="formaPagamento"
+              value="Cartão de Crédito"
+            >
+
             <div class="payment-content">
-              <span class="payment-icon">💳</span>
+
+              <span class="payment-icon">
+                💳
+              </span>
+
               <div>
                 <strong>Cartão de Crédito</strong>
                 <small>Parcelamento disponível</small>
               </div>
+
             </div>
+
           </label>
 
           <label class="payment-card">
-            <input type="radio" name="formaPagamento" value="Cartão de Débito">
+
+            <input
+              type="radio"
+              name="formaPagamento"
+              value="Cartão de Débito"
+            >
+
             <div class="payment-content">
-              <span class="payment-icon">🏦</span>
+
+              <span class="payment-icon">
+                🏦
+              </span>
+
               <div>
                 <strong>Cartão de Débito</strong>
                 <small>Pagamento imediato</small>
               </div>
+
             </div>
+
           </label>
 
           <label class="payment-card">
-            <input type="radio" name="formaPagamento" value="Combinar formas de pagamento">
+
+            <input
+              type="radio"
+              name="formaPagamento"
+              value="Combinar formas de pagamento"
+            >
+
             <div class="payment-content">
-              <span class="payment-icon">🤝</span>
+
+              <span class="payment-icon">
+                🤝
+              </span>
+
               <div>
                 <strong>Combinar pagamento</strong>
                 <small>Definir posteriormente</small>
               </div>
+
             </div>
+
           </label>
+
         </div>
+
       </div>
 
-      <button class="confirmar-pedido-btn" type="button" onclick="enviarPedidoWhatsApp()">
+      <button
+        class="confirmar-pedido-btn"
+        type="button"
+        onclick="enviarPedidoWhatsApp()"
+      >
         Enviar pelo WhatsApp
       </button>
 
       <small class="modal-aviso">
         O envio não finaliza compra. Nossa equipe confirmará disponibilidade e condições.
       </small>
+
     </div>
+
   </div>
 
   <script src="script.js"></script>
+
 </body>
 </html>
