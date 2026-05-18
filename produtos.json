@@ -1,9 +1,259 @@
 [
   {
     "nome": "pocket blush",
-    "descricao": "pocket blush\n\nProduto selecionado pela Bella Imports.\n\nInformações do produto:\nA little blush for a little flush. Our on-the-go cream blush wakes up cheeks and lips with a satiny, diffused flush that melts on smoothly and stays all day.\n\nObservação:\nDisponibilidade e condições devem ser confirmadas antes da compra.",
+    "descricao": "pocket blush\n\nProduto selecionado pela Bella Imports.\n\nInformações do produto:\nUm pouco de blush para um pouco de rubor. Nosso blush em creme para viagem desperta bochechas e lábios com um rubor acetinado e difuso que derrete suavemente e permanece o dia todo.\n\nObservação:\nDisponibilidade e condições devem ser confirmadas antes da compra.",
     "imagem": "imagens_processadas/pocket-blush.png",
     "url_origem": "https://www.rhodeskin.com/products/pocket-blush-candy-apple",
-    "categoria": "sem-categoria"
+    "categoria": "Rhode",
+    "descricao_original": "Um pouco de blush para um pouco de rubor. Nosso blush em creme para viagem desperta bochechas e lábios com um rubor acetinado e difuso que derrete suavemente e permanece o dia todo."
+  },
+  {
+    "nome": "spotwear",
+    "descricao": "spotwear\n\nProduto selecionado pela Bella Imports.\n\nInformações do produto:\nNossos adesivos de alto desempenho são 100% hidrocolóides e clinicamente comprovados para minimizar a aparência de manchas. Chegando em cinco formatos exclusivos.\n\nObservação:\nDisponibilidade e condições devem ser confirmadas antes da compra.",
+    "imagem": "imagens_processadas/spotwear.png",
+    "url_origem": "https://www.rhodeskin.com/products/spotwear-daisy",
+    "categoria": "Rhode",
+    "descricao_original": "Nossos adesivos de alto desempenho são 100% hidrocolóides e clinicamente comprovados para minimizar a aparência de manchas. Chegando em cinco formatos exclusivos.",
+    "preco": "R$189,90"
+  },
+  {
+    "nome": "caffeine reset",
+    "descricao": "caffeine reset\n\nProduto selecionado pela Bella Imports.\n\nInformações do produto:\nUma xícara de café para o seu rosto. Nossa máscara em creme modelador acorda a pele cansada com uma fórmula rica em cafeína.\n\nObservação:\nDisponibilidade e condições devem ser confirmadas antes da compra.",
+    "imagem": "imagens_processadas/caffeine-reset.png",
+    "url_origem": "https://www.rhodeskin.com/products/caffeine-reset",
+    "categoria": "Rhode",
+    "descricao_original": "Uma xícara de café para o seu rosto. Nossa máscara em creme modelador acorda a pele cansada com uma fórmula rica em cafeína.",
+    "preco": "R$410,00"
+  },
+  {
+    "nome": "peptide eye prep",
+    "descricao": "peptide eye prep\n\nProduto selecionado pela Bella Imports.\n\nInformações do produto:\nCuidado labial é cuidado com a pele. Peptide Lip Treatment é uma fórmula nutritiva que hidrata e reabastece os lábios, deixando um acabamento brilhante e de alto brilho.\n\nObservação:\nDisponibilidade e condições devem ser confirmadas antes da compra.",
+    "imagem": "imagens_processadas/peptide-eye-prep.png",
+    "url_origem": "https://www.rhodeskin.com/products/peptide-eye-prep-r-icon",
+    "categoria": "Rhode",
+    "descricao_original": "Cuidado labial é cuidado com a pele. Peptide Lip Treatment é uma fórmula nutritiva que hidrata e reabastece os lábios, deixando um acabamento brilhante e de alto brilho.",
+    "preco": "R$285,00"
+  },
+  {
+    "nome": "peptide lip boost",
+    "descricao": "peptide lip boost\n\nProduto selecionado pela Bella Imports.\n\nInformações do produto:\nUma máscara labial preenchedora que aumenta o volume instantaneamente e ao longo do tempo. Nossa fórmula espessa e amena proporciona uma sensação de formigamento, mas confortável, para um efeito de preenchimento imediato.\n\nObservação:\nDisponibilidade e condições devem ser confirmadas antes da compra.",
+    "imagem": "imagens_processadas/peptide-lip-boost.png",
+    "url_origem": "https://www.rhodeskin.com/products/peptide-lip-boost-unscented",
+    "categoria": "Rhode",
+    "descricao_original": "Uma máscara labial preenchedora que aumenta o volume instantaneamente e ao longo do tempo. Nossa fórmula espessa e amena proporciona uma sensação de formigamento, mas confortável, para um efeito de preenchimento imediato.",
+    "preco": "R$280,00"
+  },
+  {
+    "nome": "the spot care set",
+    "descricao": "the spot care set\n\nProduto selecionado pela Bella Imports.\n\nInformações do produto:\nPegue três de nossos produtos essenciais de cuidados com a pele favoritos para peles com tendência a manchas.\n\nObservação:\nDisponibilidade e condições devem ser confirmadas antes da compra.",
+    "imagem": "imagens_processadas/the-spot-care-set.png",
+    "url_origem": "https://www.rhodeskin.com/products/the-spot-care-set",
+    "categoria": "Rhode",
+    "descricao_original": "Pegue três de nossos produtos essenciais de cuidados com a pele favoritos para peles com tendência a manchas.",
+    "preco": "R$570"
+  },
+  {
+    "nome": "the wake up kit",
+    "descricao": "the wake up kit\n\nProduto selecionado pela Bella Imports.\n\nInformações do produto:\nPeptide Eye Prep, Caffeine Reset e Peptide Lip Boost juntos para um momento de máscara completo, e o Mini Bubble Bag para transportar todos eles.\n\nObservação:\nDisponibilidade e condições devem ser confirmadas antes da compra.",
+    "imagem": "imagens_processadas/the-wake-up-kit.png",
+    "url_origem": "https://www.rhodeskin.com/products/the-wake-up-kit?variant=47608538726638",
+    "categoria": "Rhode",
+    "descricao_original": "Peptide Eye Prep, Caffeine Reset e Peptide Lip Boost juntos para um momento de máscara completo, e o Mini Bubble Bag para transportar todos eles.",
+    "preco": "R$845,00"
+  },
+  {
+    "nome": "the lip boost set",
+    "descricao": "the lip boost set\n\nProduto selecionado pela Bella Imports.\n\nInformações do produto:\nNossa dupla de máscaras labiais que aumenta o volume instantaneamente e ao longo do tempo. Disponível em menta e sem perfume.\n\nObservação:\nDisponibilidade e condições devem ser confirmadas antes da compra.",
+    "imagem": "imagens_processadas/the-lip-boost-set.png",
+    "url_origem": "https://www.rhodeskin.com/products/the-peptide-lip-boost-set",
+    "categoria": "Rhode",
+    "descricao_original": "Nossa dupla de máscaras labiais que aumenta o volume instantaneamente e ao longo do tempo. Disponível em menta e sem perfume.",
+    "preco": "R$495"
+  },
+  {
+    "nome": "the rhode kit",
+    "descricao": "the rhode kit\n\nProduto selecionado pela Bella Imports.\n\nInformações do produto:\nObtenha a pele úmida e vidrada exclusiva de Hailey Bieber com o kit Rhode. Nossas 4 fórmulas de alto desempenho são projetadas para hidratação máxima e se adaptam perfeitamente a qualquer rotina. Empacotados no saco plástico de bolhas Rhode. Valor $ 118.\n\nObservação:\nDisponibilidade e condições devem ser confirmadas antes da compra.",
+    "imagem": "imagens_processadas/the-rhode-kit.png",
+    "url_origem": "https://www.rhodeskin.com/products/full-rhode-kit",
+    "categoria": "Rhode",
+    "descricao_original": "Obtenha a pele úmida e vidrada exclusiva de Hailey Bieber com o kit Rhode. Nossas 4 fórmulas de alto desempenho são projetadas para hidratação máxima e se adaptam perfeitamente a qualquer rotina. Empacotados no saco plástico de bolhas Rhode. Valor $ 118.",
+    "preco": "R$895,00"
+  },
+  {
+    "nome": "glazing milk 124ml",
+    "descricao": "glazing milk\n\nProduto selecionado pela Bella Imports.\n\nInformações do produto:\nGlazing Milk é um complexo potente e rico em nutrientes com uma textura leitosa que deixa a pele hidratada e brilhante, ao mesmo tempo que aumenta a barreira cutânea ao longo do tempo.\n\nObservação:\nDisponibilidade e condições devem ser confirmadas antes da compra.",
+    "imagem": "imagens_processadas/glazing-milk.png",
+    "url_origem": "https://www.rhodeskin.com/products/glazing-milk?variant=44178822004974",
+    "categoria": "Rhode",
+    "descricao_original": "Glazing Milk é um complexo potente e rico em nutrientes com uma textura leitosa que deixa a pele hidratada e brilhante, ao mesmo tempo que aumenta a barreira cutânea ao longo do tempo.",
+    "preco": "R$330,00"
+  },
+  {
+    "nome": "the glow set",
+    "descricao": "the glow set\n\nProduto selecionado pela Bella Imports.\n\nInformações do produto:\nLeve sua rotina Rhode em qualquer lugar. Nosso conjunto de quatro itens essenciais de cuidados com a pele para viagens mantém sua pele hidratada e viçosa desde a decolagem até o pouso. Valor de $ 90.\n\nObservação:\nDisponibilidade e condições devem ser confirmadas antes da compra.",
+    "imagem": "imagens_processadas/the-glow-set.png",
+    "url_origem": "https://www.rhodeskin.com/products/the-glow-set",
+    "categoria": "Rhode",
+    "descricao_original": "Leve sua rotina Rhode em qualquer lugar. Nosso conjunto de quatro itens essenciais de cuidados com a pele para viagens mantém sua pele hidratada e viçosa desde a decolagem até o pouso. Valor de $ 90.",
+    "preco": "R$660,00"
+  },
+  {
+    "nome": "glazing milk 50ml",
+    "descricao": "glazing milk\n\nProduto selecionado pela Bella Imports.\n\nInformações do produto:\nGlazing Milk is a potent, nutrient-rich complex with a milky texture that leaves skin feeling hydrated and glowy while boosting the skin barrier over time.\n\nObservação:\nDisponibilidade e condições devem ser confirmadas antes da compra.",
+    "descricao_original": "Glazing Milk is a potent, nutrient-rich complex with a milky texture that leaves skin feeling hydrated and glowy while boosting the skin barrier over time.",
+    "preco": "R$260,00",
+    "imagem": "imagens_processadas/glazing-milk.png",
+    "url_origem": "https://www.rhodeskin.com/products/glazing-milk?variant=44178822004974",
+    "categoria": "Rhode"
+  },
+  {
+    "nome": "peptide lip treatment",
+    "descricao": "peptide lip treatment\n\nProduto selecionado pela Bella Imports.\n\nInformações do produto:\nLip care is skin care. Peptide Lip Treatment is a nourishing formula that hydrates and replenishes lips while leaving a glossy, high-shine finish.\n\nObservação:\nDisponibilidade e condições devem ser confirmadas antes da compra.",
+    "descricao_original": "Lip care is skin care. Peptide Lip Treatment is a nourishing formula that hydrates and replenishes lips while leaving a glossy, high-shine finish.",
+    "preco": "R$289,90",
+    "imagem": "imagens_processadas/peptide-lip-treatment.png",
+    "url_origem": "https://www.rhodeskin.com/products/peptide-lip-treatment-strawberry-glaze",
+    "categoria": "Rhode"
+  },
+  {
+    "nome": "the on-the-go set",
+    "descricao": "the on-the-go set\n\nProduto selecionado pela Bella Imports.\n\nInformações do produto:\nTake your rhode on the go. Four essentials to throw in your bag for a quick skincare refresh whenever you need it.\n\nObservação:\nDisponibilidade e condições devem ser confirmadas antes da compra.",
+    "descricao_original": "Take your rhode on the go. Four essentials to throw in your bag for a quick skincare refresh whenever you need it.",
+    "preco": "R$795,00",
+    "imagem": "imagens_processadas/the-on-the-go-set.png",
+    "url_origem": "https://www.rhodeskin.com/products/the-on-the-go-set",
+    "categoria": "Rhode"
+  },
+  {
+    "nome": "barrier butter 100ml",
+    "descricao": "barrier butter\n\nProduto selecionado pela Bella Imports.\n\nInformações do produto:\nAn intensive moisture balm for deep hydration overnight. Our buttery-smooth formula is a supercharged addition to your nighttime routine. It helps strengthen the skin barrier and seal in moisture for up to 24 hours*—restoring skin's natural softness and bounce.&nbsp;\n\nObservação:\nDisponibilidade e condições devem ser confirmadas antes da compra.",
+    "descricao_original": "An intensive moisture balm for deep hydration overnight. Our buttery-smooth formula is a supercharged addition to your nighttime routine. It helps strengthen the skin barrier and seal in moisture for up to 24 hours*—restoring skin's natural softness and bounce.&nbsp;",
+    "preco": "R$379,90",
+    "imagem": "imagens_processadas/barrier-butter.png",
+    "url_origem": "https://www.rhodeskin.com/products/barrier-butter?variant=45828632871150",
+    "categoria": "Rhode"
+  },
+  {
+    "nome": "barrier butter 40ml",
+    "descricao": "barrier butter\n\nProduto selecionado pela Bella Imports.\n\nInformações do produto:\nAn intensive moisture balm for deep hydration overnight. Our buttery-smooth formula is a supercharged addition to your nighttime routine. It helps strengthen the skin barrier and seal in moisture for up to 24 hours*—restoring skin's natural softness and bounce.&nbsp;\n\nObservação:\nDisponibilidade e condições devem ser confirmadas antes da compra.",
+    "descricao_original": "An intensive moisture balm for deep hydration overnight. Our buttery-smooth formula is a supercharged addition to your nighttime routine. It helps strengthen the skin barrier and seal in moisture for up to 24 hours*—restoring skin's natural softness and bounce.&nbsp;",
+    "preco": "R$275,00",
+    "imagem": "imagens_processadas/barrier-butter.png",
+    "url_origem": "https://www.rhodeskin.com/products/barrier-butter?variant=45828632871150",
+    "categoria": "Rhode"
+  },
+  {
+    "nome": "the travel set",
+    "descricao": "the travel set\n\nProduto selecionado pela Bella Imports.\n\nInformações do produto:\nTake your rhode routine on the go. Our set of five travel-friendly skincare essentials keeps your skin looking hydrated and glazed from takeoff to landing.\n\nObservação:\nDisponibilidade e condições devem ser confirmadas antes da compra.",
+    "descricao_original": "Take your rhode routine on the go. Our set of five travel-friendly skincare essentials keeps your skin looking hydrated and glazed from takeoff to landing.",
+    "preco": "R$785,00",
+    "imagem": "imagens_processadas/the-travel-set.png",
+    "url_origem": "https://www.rhodeskin.com/products/the-travel-set",
+    "categoria": "Rhode"
+  },
+  {
+    "nome": "glazing mist",
+    "descricao": "glazing mist\n\nProduto selecionado pela Bella Imports.\n\nInformações do produto:\nSuperfine spray that hydrates and refreshes for a next-level glowy finish.\n\nObservação:\nDisponibilidade e condições devem ser confirmadas antes da compra.",
+    "descricao_original": "Superfine spray that hydrates and refreshes for a next-level glowy finish.",
+    "preco": "R$320,00",
+    "imagem": "imagens_processadas/glazing-mist.png",
+    "url_origem": "https://www.rhodeskin.com/products/glazing-mist",
+    "categoria": "Rhode"
+  },
+  {
+    "nome": "pineapple refresh 100ml",
+    "descricao": "pineapple refresh\n\nProduto selecionado pela Bella Imports.\n\nInformações do produto:\nHailey Bieber's first step in the rhode skincare routine. A refreshing balm-to-lather daily cleanser formulated with polyglutamic acid (aka PGA), green tea extract, and pineapple enzyme to leave your skin clean, soft, and bouncy post-rinse.\n\nObservação:\nDisponibilidade e condições devem ser confirmadas antes da compra.",
+    "descricao_original": "Hailey Bieber's first step in the rhode skincare routine. A refreshing balm-to-lather daily cleanser formulated with polyglutamic acid (aka PGA), green tea extract, and pineapple enzyme to leave your skin clean, soft, and bouncy post-rinse.",
+    "preco": "R$285,00",
+    "imagem": "imagens_processadas/pineapple-refresh.png",
+    "url_origem": "https://www.rhodeskin.com/products/pineapple-refresh-cleanser?variant=44594387321070",
+    "categoria": "Rhode"
+  },
+  {
+    "nome": "pineapple refresh 40ml",
+    "descricao": "pineapple refresh\n\nProduto selecionado pela Bella Imports.\n\nInformações do produto:\nHailey Bieber's first step in the rhode skincare routine. A refreshing balm-to-lather daily cleanser formulated with polyglutamic acid (aka PGA), green tea extract, and pineapple enzyme to leave your skin clean, soft, and bouncy post-rinse.\n\nObservação:\nDisponibilidade e condições devem ser confirmadas antes da compra.",
+    "descricao_original": "Hailey Bieber's first step in the rhode skincare routine. A refreshing balm-to-lather daily cleanser formulated with polyglutamic acid (aka PGA), green tea extract, and pineapple enzyme to leave your skin clean, soft, and bouncy post-rinse.",
+    "preco": "R$220,00",
+    "imagem": "imagens_processadas/pineapple-refresh.png",
+    "url_origem": "https://www.rhodeskin.com/products/pineapple-refresh-cleanser?variant=44594387321070",
+    "categoria": "Rhode"
+  },
+  {
+    "nome": "the barrier set",
+    "descricao": "the barrier set\n\nProduto selecionado pela Bella Imports.\n\nInformações do produto:\nThree essential formulas that nourish your barrier to deliver glazed, glowy skin. This collection works together to prep, glaze, and restore your skin for a hydrated and happy barrier. $90 value.\n\nObservação:\nDisponibilidade e condições devem ser confirmadas antes da compra.",
+    "descricao_original": "Three essential formulas that nourish your barrier to deliver glazed, glowy skin. This collection works together to prep, glaze, and restore your skin for a hydrated and happy barrier. $90 value.",
+    "preco": "R$785,00",
+    "imagem": "imagens_processadas/the-barrier-set.png",
+    "url_origem": "https://www.rhodeskin.com/products/the-barrier-set",
+    "categoria": "Rhode"
+  },
+  {
+    "nome": "peptide glazing fluid 50ml",
+    "descricao": "peptide glazing fluid\n\nProduto selecionado pela Bella Imports.\n\nInformações do produto:\nHailey Bieber's signature step to dewy, glazed skin. Lightweight, quick-absorbing, gel serum that visibly plumps, hydrates and supports a healthy-looking skin barrier.\n\nObservação:\nDisponibilidade e condições devem ser confirmadas antes da compra.",
+    "descricao_original": "Hailey Bieber's signature step to dewy, glazed skin. Lightweight, quick-absorbing, gel serum that visibly plumps, hydrates and supports a healthy-looking skin barrier.",
+    "preco": "R$325,00",
+    "imagem": "imagens_processadas/peptide-glazing-fluid.png",
+    "url_origem": "https://www.rhodeskin.com/products/peptide-glazing-fluid?variant=46988592021742",
+    "categoria": "Rhode"
+  },
+  {
+    "nome": "peptide glazing fluid 15ml",
+    "descricao": "peptide glazing fluid\n\nProduto selecionado pela Bella Imports.\n\nInformações do produto:\nHailey Bieber's signature step to dewy, glazed skin. Lightweight, quick-absorbing, gel serum that visibly plumps, hydrates and supports a healthy-looking skin barrier.\n\nObservação:\nDisponibilidade e condições devem ser confirmadas antes da compra.",
+    "descricao_original": "Hailey Bieber's signature step to dewy, glazed skin. Lightweight, quick-absorbing, gel serum that visibly plumps, hydrates and supports a healthy-looking skin barrier.",
+    "preco": "R$260,00",
+    "imagem": "imagens_processadas/peptide-glazing-fluid.png",
+    "url_origem": "https://www.rhodeskin.com/products/peptide-glazing-fluid?variant=46988592021742",
+    "categoria": "Rhode"
+  },
+  {
+    "nome": "the skin prep set",
+    "descricao": "the skin prep set\n\nProduto selecionado pela Bella Imports.\n\nInformações do produto:\nGet ready with rhode. Our set of four skin prep essentials provides dewy moisture to prime skin for better makeup application and create a smooth, glowy base.\n\nObservação:\nDisponibilidade e condições devem ser confirmadas antes da compra.",
+    "descricao_original": "Get ready with rhode. Our set of four skin prep essentials provides dewy moisture to prime skin for better makeup application and create a smooth, glowy base.",
+    "preco": "R$920,00",
+    "imagem": "imagens_processadas/the-skin-prep-set.png",
+    "url_origem": "https://www.rhodeskin.com/products/the-skin-prep-set?variant=47014373785838",
+    "categoria": "Rhode"
+  },
+  {
+    "nome": "barrier restore cream 50ml",
+    "descricao": "barrier restore cream\n\nProduto selecionado pela Bella Imports.\n\nInformações do produto:\nRich, but lightweight, cream moisturizer to comfort, soothe, and restore the skin barrier to deliver hydrated, smoother, softer skin over time.\n\nObservação:\nDisponibilidade e condições devem ser confirmadas antes da compra.",
+    "descricao_original": "Rich, but lightweight, cream moisturizer to comfort, soothe, and restore the skin barrier to deliver hydrated, smoother, softer skin over time.",
+    "preco": "R$280,00",
+    "imagem": "imagens_processadas/barrier-restore-cream.png",
+    "url_origem": "https://www.rhodeskin.com/products/barrier-restore-cream?variant=46988568330478",
+    "categoria": "Rhode"
+  },
+  {
+    "nome": "barrier restore cream 40ml",
+    "descricao": "barrier restore cream\n\nProduto selecionado pela Bella Imports.\n\nInformações do produto:\nRich, but lightweight, cream moisturizer to comfort, soothe, and restore the skin barrier to deliver hydrated, smoother, softer skin over time.\n\nObservação:\nDisponibilidade e condições devem ser confirmadas antes da compra.",
+    "descricao_original": "Rich, but lightweight, cream moisturizer to comfort, soothe, and restore the skin barrier to deliver hydrated, smoother, softer skin over time.",
+    "preco": "R$230,00",
+    "imagem": "imagens_processadas/barrier-restore-cream.png",
+    "url_origem": "https://www.rhodeskin.com/products/barrier-restore-cream?variant=46988568330478",
+    "categoria": "Rhode"
+  },
+  {
+    "nome": "pocket blush",
+    "descricao": "pocket blush\n\nProduto selecionado pela Bella Imports.\n\nInformações do produto:\nA little blush for a little flush. Our on-the-go cream blush wakes up cheeks and lips with a satiny, diffused flush that melts on smoothly and stays all day.\n\nObservação:\nDisponibilidade e condições devem ser confirmadas antes da compra.",
+    "descricao_original": "A little blush for a little flush. Our on-the-go cream blush wakes up cheeks and lips with a satiny, diffused flush that melts on smoothly and stays all day.",
+    "preco": "R$289,90",
+    "imagem": "imagens_processadas/pocket-blush.png",
+    "url_origem": "https://www.rhodeskin.com/products/pocket-blush-candy-apple",
+    "categoria": "Rhode",
+    "cores": [
+      "Piggy",
+      "Sprinkle",
+      "Juice Box",
+      "Spice Marg",
+      "Freckle",
+      "Tan Line",
+      "Teacup",
+      "Sleepy Girl",
+      "Toasted Teddy",
+      "Sun Soak",
+      "Plum",
+      "Date Cake",
+      "Candy Apple"
+    ]
   }
 ]

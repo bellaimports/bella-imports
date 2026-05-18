@@ -6,24 +6,21 @@ from bs4 import BeautifulSoup
 from PIL import Image, UnidentifiedImageError
 from slugify import slugify
 from duckduckgo_search import DDGS
+from deep_translator import GoogleTranslator
+from langdetect import detect, DetectorFactory
 
 
-# =========================
-# CONFIGURAÇÕES
-# =========================
+DetectorFactory.seed = 0
+
 
 PASTA_SITE = r"C:\catalogo-loja"
 
-PASTA_IMAGENS_ORIGINAIS = "imagens_originais"
+PASTA_IMAGENS_ORIGINAIS = os.path.join(PASTA_SITE, "imagens_originais")
 PASTA_IMAGENS_PROCESSADAS = os.path.join(PASTA_SITE, "imagens_processadas")
 
 ARQUIVO_PRODUTOS = os.path.join(PASTA_SITE, "produtos.json")
-ARQUIVO_LOGO = "logo.png"
+ARQUIVO_LOGO = os.path.join(PASTA_SITE, "logo.png")
 
-
-# =========================
-# PASTAS E JSON
-# =========================
 
 def criar_pastas():
     os.makedirs(PASTA_IMAGENS_ORIGINAIS, exist_ok=True)
@@ -50,10 +47,6 @@ def salvar_lista_produtos(produtos):
         json.dump(produtos, arquivo, indent=2, ensure_ascii=False)
 
 
-# =========================
-# LISTAGEM
-# =========================
-
 def listar_produtos(produtos):
     if not produtos:
         print("\nNenhum produto cadastrado.")
@@ -63,8 +56,10 @@ def listar_produtos(produtos):
 
     for i, produto in enumerate(produtos):
         nome = produto.get("nome", "Produto sem nome")
-        categoria = produto.get("categoria", "sem-categoria")
-        print(f"{i + 1}. {nome} | Categoria: {categoria}")
+        categoria = produto.get("categoria", "Sem categoria")
+        preco = produto.get("preco", "Sem preço")
+
+        print(f"{i + 1}. {nome} | {preco} | Categoria: {categoria}")
 
     return True
 
@@ -86,9 +81,25 @@ def escolher_produto(produtos):
     return escolha
 
 
-# =========================
-# SCRAPING
-# =========================
+def processar_cores_input(texto):
+    """
+    Recebe um texto com cores separadas por vírgula e retorna uma lista
+    limpa, sem duplicatas e com cada cor capitalizada.
+    """
+    if not texto or not texto.strip():
+        return []
+
+    cores = []
+
+    for parte in texto.split(","):
+        cor_limpa = parte.strip()
+
+        if cor_limpa and cor_limpa not in cores:
+            # Capitaliza cada palavra (ex: "azul marinho" -> "Azul Marinho")
+            cores.append(cor_limpa.title())
+
+    return cores
+
 
 def baixar_html(url):
     headers = {
@@ -143,6 +154,7 @@ def cadastrar_produto_manual(url):
 
     nome = input("Nome do produto: ").strip()
     descricao = input("Descrição curta do produto: ").strip()
+    preco = input("Preço do produto, ou Enter para deixar sem preço: ").strip()
 
     imagem_url = input(
         "Link direto da imagem ou Enter para buscar automático: "
@@ -155,7 +167,8 @@ def cadastrar_produto_manual(url):
         "url_origem": url,
         "nome": nome if nome else "Produto sem nome",
         "descricao_original": descricao,
-        "imagem_url": imagem_url if imagem_url else None
+        "imagem_url": imagem_url if imagem_url else None,
+        "preco": preco
     }
 
 
@@ -170,7 +183,14 @@ def extrair_dados_generico(url):
     titulo = soup.find("h1")
     titulo = titulo.get_text(strip=True) if titulo else "Produto sem nome"
 
+    if titulo == "Produto sem nome":
+        og_title = soup.find("meta", property="og:title")
+
+        if og_title and og_title.get("content"):
+            titulo = og_title["content"].strip()
+
     meta_description = soup.find("meta", attrs={"name": "description"})
+
     descricao = (
         meta_description["content"].strip()
         if meta_description and meta_description.get("content")
@@ -178,28 +198,28 @@ def extrair_dados_generico(url):
     )
 
     imagem = soup.find("meta", property="og:image")
+
     imagem_url = (
         imagem["content"]
         if imagem and imagem.get("content")
         else None
     )
 
-    if titulo == "Produto sem nome":
-        og_title = soup.find("meta", property="og:title")
-        if og_title and og_title.get("content"):
-            titulo = og_title["content"].strip()
+    preco = ""
+
+    meta_price = soup.find("meta", property="product:price:amount")
+
+    if meta_price and meta_price.get("content"):
+        preco = meta_price["content"].strip()
 
     return {
         "url_origem": url,
         "nome": titulo,
         "descricao_original": descricao,
-        "imagem_url": imagem_url
+        "imagem_url": imagem_url,
+        "preco": preco
     }
 
-
-# =========================
-# IMAGENS
-# =========================
 
 def baixar_imagem(imagem_url, nome_produto):
     if not imagem_url:
@@ -207,15 +227,40 @@ def baixar_imagem(imagem_url, nome_produto):
         return None
 
     slug = slugify(nome_produto)
-    caminho = os.path.join(PASTA_IMAGENS_ORIGINAIS, f"{slug}.jpg")
 
     headers = {
         "User-Agent": "Mozilla/5.0"
     }
 
     try:
-        resposta = requests.get(imagem_url, headers=headers, timeout=30)
+        resposta = requests.get(
+            imagem_url,
+            headers=headers,
+            timeout=30
+        )
+
         resposta.raise_for_status()
+
+        content_type = resposta.headers.get(
+            "Content-Type",
+            ""
+        ).lower()
+
+        extensao = ".jpg"
+
+        if "png" in content_type:
+            extensao = ".png"
+
+        elif "webp" in content_type:
+            extensao = ".webp"
+
+        elif "jpeg" in content_type or "jpg" in content_type:
+            extensao = ".jpg"
+
+        caminho = os.path.join(
+            PASTA_IMAGENS_ORIGINAIS,
+            f"{slug}{extensao}"
+        )
 
         with open(caminho, "wb") as arquivo:
             arquivo.write(resposta.content)
@@ -235,6 +280,7 @@ def carregar_logo():
 
     try:
         return Image.open(ARQUIVO_LOGO).convert("RGBA")
+
     except Exception as erro:
         print("Não foi possível abrir a logo.png.")
         print("Motivo:", erro)
@@ -246,50 +292,72 @@ def aplicar_logo_na_imagem(caminho_imagem, nome_produto):
         return ""
 
     slug = slugify(nome_produto)
-    saida = os.path.join(PASTA_IMAGENS_PROCESSADAS, f"{slug}.png")
+
+    saida = os.path.join(
+        PASTA_IMAGENS_PROCESSADAS,
+        f"{slug}.png"
+    )
 
     try:
-        imagem = Image.open(caminho_imagem).convert("RGBA")
-    except (UnidentifiedImageError, OSError, ValueError) as erro:
+        imagem_original = Image.open(caminho_imagem)
+
+    except (
+        UnidentifiedImageError,
+        OSError,
+        ValueError
+    ) as erro:
         print("Não foi possível abrir a imagem do produto.")
         print("Motivo:", erro)
         return ""
 
-    logo = carregar_logo()
+    if imagem_original.mode != "RGBA":
+        imagem_original = imagem_original.convert("RGBA")
 
-    if logo is None:
-        imagem.convert("RGB").save(saida)
-        return f"imagens_processadas/{slug}.png"
-
-    largura_logo = int(imagem.width * 0.16)
-
-    if largura_logo <= 0:
-        largura_logo = 80
-
-    proporcao = largura_logo / logo.width
-    altura_logo = int(logo.height * proporcao)
-
-    logo = logo.resize((largura_logo, altura_logo))
-
-    margem = int(imagem.width * 0.04)
-
-    posicao = (
-        imagem.width - logo.width - margem,
-        imagem.height - logo.height - margem
+    fundo = Image.new(
+        "RGB",
+        imagem_original.size,
+        (255, 255, 255)
     )
 
-    camada = Image.new("RGBA", imagem.size, (255, 255, 255, 0))
-    camada.paste(logo, posicao, logo)
+    fundo.paste(
+        imagem_original,
+        mask=imagem_original.split()[3]
+    )
 
-    resultado = Image.alpha_composite(imagem, camada)
-    resultado.convert("RGB").save(saida)
+    imagem = fundo
+
+    logo = carregar_logo()
+
+    if logo is not None:
+        largura_logo = int(imagem.width * 0.16)
+
+        if largura_logo <= 0:
+            largura_logo = 80
+
+        proporcao = largura_logo / logo.width
+        altura_logo = int(logo.height * proporcao)
+
+        logo = logo.resize(
+            (largura_logo, altura_logo)
+        )
+
+        margem = int(imagem.width * 0.04)
+
+        posicao = (
+            imagem.width - logo.width - margem,
+            imagem.height - logo.height - margem
+        )
+
+        imagem.paste(
+            logo,
+            posicao,
+            mask=logo
+        )
+
+    imagem.save(saida, "PNG")
 
     return f"imagens_processadas/{slug}.png"
 
-
-# =========================
-# PRODUTO
-# =========================
 
 def gerar_texto_produto(nome, descricao_original):
     return f"""
@@ -320,6 +388,17 @@ def importar_produto(url):
     print("\nNome encontrado:")
     print(dados["nome"])
 
+    preco_detectado = dados.get("preco", "")
+
+    if preco_detectado:
+        print(f"\nPreço detectado: {preco_detectado}")
+
+    preco_manual = input(
+        "\nPreço final do produto, ou Enter para manter sem preço: "
+    ).strip()
+
+    preco_final = preco_manual if preco_manual else preco_detectado
+
     caminho_original = baixar_imagem(
         dados["imagem_url"],
         dados["nome"]
@@ -331,8 +410,18 @@ def importar_produto(url):
     )
 
     categoria = input(
-        "\nCategoria do produto ou Enter para sem-categoria: "
+        "\nCategoria do produto ou Enter para deixar sem categoria: "
     ).strip()
+
+    cores_input = input(
+        "\nCores disponíveis separadas por vírgula (ex: Vermelho, Azul, Preto)\n"
+        "ou Enter para produto sem variação de cor: "
+    ).strip()
+
+    cores = processar_cores_input(cores_input)
+
+    if cores:
+        print(f"Cores cadastradas: {', '.join(cores)}")
 
     produto_final = {
         "nome": dados["nome"],
@@ -340,9 +429,12 @@ def importar_produto(url):
             dados["nome"],
             dados["descricao_original"]
         ),
+        "descricao_original": dados["descricao_original"],
+        "preco": preco_final,
         "imagem": caminho_processado,
         "url_origem": dados["url_origem"],
-        "categoria": categoria if categoria else "sem-categoria"
+        "categoria": categoria,
+        "cores": cores
     }
 
     salvar_produto(produto_final)
@@ -397,16 +489,29 @@ def editar_produto():
         "Nova descrição: "
     ).strip()
 
+    novo_preco = input(
+        f"Preço atual [{produto.get('preco', 'Sem preço')}]: "
+    ).strip()
+
     nova_categoria = input(
-        f"Categoria atual [{produto.get('categoria', 'sem-categoria')}]: "
+        f"Categoria atual [{produto.get('categoria', '')}]: "
     ).strip()
 
     nova_url = input(
         f"URL origem atual [{produto.get('url_origem', '')}]: "
     ).strip()
 
+    cores_atuais = produto.get("cores", [])
+    cores_atuais_str = ", ".join(cores_atuais) if cores_atuais else "Sem cores"
+
+    print(f"\nCores atuais: {cores_atuais_str}")
+    print("Digite as novas cores separadas por vírgula, 'limpar' para remover")
+    print("todas as cores, ou Enter para manter as atuais.")
+
+    novas_cores_input = input("Cores: ").strip()
+
     trocar_imagem = input(
-        "Deseja trocar a imagem? (s/n): "
+        "\nDeseja trocar a imagem? (s/n): "
     ).strip().lower()
 
     if novo_nome:
@@ -415,11 +520,22 @@ def editar_produto():
     if nova_descricao:
         produto["descricao"] = nova_descricao
 
+    if novo_preco:
+        produto["preco"] = novo_preco
+
     if nova_categoria:
         produto["categoria"] = nova_categoria
 
     if nova_url:
         produto["url_origem"] = nova_url
+
+    if novas_cores_input:
+        if novas_cores_input.lower() == "limpar":
+            produto["cores"] = []
+            print("Cores removidas.")
+        else:
+            produto["cores"] = processar_cores_input(novas_cores_input)
+            print(f"Cores atualizadas: {', '.join(produto['cores'])}")
 
     if trocar_imagem == "s":
         imagem_url = input(
@@ -461,16 +577,205 @@ def editar_produto():
     print("\nProduto atualizado com sucesso.")
 
 
-# =========================
-# MENU
-# =========================
+def detectar_fundo_problematico(caminho_imagem):
+    if not caminho_imagem or not os.path.exists(caminho_imagem):
+        return False
+
+    try:
+        imagem = Image.open(caminho_imagem).convert("RGB")
+    except Exception:
+        return False
+
+    largura, altura = imagem.size
+    pixels = imagem.load()
+
+    amostras = []
+
+    for x in range(0, largura, max(1, largura // 30)):
+        amostras.append(pixels[x, 0])
+        amostras.append(pixels[x, altura - 1])
+
+    for y in range(0, altura, max(1, altura // 30)):
+        amostras.append(pixels[0, y])
+        amostras.append(pixels[largura - 1, y])
+
+    escuros = 0
+
+    for r, g, b in amostras:
+        if (r + g + b) < 180:
+            escuros += 1
+
+    proporcao_escura = escuros / len(amostras)
+
+    return proporcao_escura > 0.4
+
+
+def reprocessar_imagem_produto(produto):
+    nome = produto.get("nome", "produto")
+    slug = slugify(nome)
+
+    caminho_original = None
+
+    for extensao in [".jpg", ".png", ".webp", ".jpeg"]:
+        candidato = os.path.join(
+            PASTA_IMAGENS_ORIGINAIS,
+            f"{slug}{extensao}"
+        )
+
+        if os.path.exists(candidato):
+            caminho_original = candidato
+            break
+
+    if not caminho_original:
+        url_origem = produto.get("url_origem", "")
+
+        if not url_origem:
+            print(f"  Sem URL de origem para baixar de novo. Pulando.")
+            return None
+
+        try:
+            html = baixar_html(url_origem)
+
+            if html:
+                soup = BeautifulSoup(html, "html.parser")
+                imagem_meta = soup.find("meta", property="og:image")
+
+                if imagem_meta and imagem_meta.get("content"):
+                    caminho_original = baixar_imagem(
+                        imagem_meta["content"],
+                        nome
+                    )
+        except Exception as erro:
+            print(f"  Erro ao rebaixar imagem: {erro}")
+            return None
+
+    if not caminho_original:
+        return None
+
+    caminho_processado = aplicar_logo_na_imagem(caminho_original, nome)
+
+    return caminho_processado if caminho_processado else None
+
+
+def traduzir_se_ingles(texto):
+    if not texto or len(texto.strip()) < 10:
+        return texto, False
+
+    try:
+        idioma = detect(texto)
+    except Exception:
+        return texto, False
+
+    if idioma != "en":
+        return texto, False
+
+    try:
+        if len(texto) <= 4500:
+            traducao = GoogleTranslator(
+                source="en",
+                target="pt"
+            ).translate(texto)
+        else:
+            partes = [
+                texto[i:i + 4500]
+                for i in range(0, len(texto), 4500)
+            ]
+
+            traducao = " ".join(
+                GoogleTranslator(source="en", target="pt").translate(parte)
+                for parte in partes
+            )
+
+        return traducao, True
+
+    except Exception as erro:
+        print(f"  Erro ao traduzir: {erro}")
+        return texto, False
+
+
+def vistoriar_produtos():
+    produtos = carregar_produtos()
+
+    if not produtos:
+        print("\nNenhum produto cadastrado para vistoriar.")
+        return
+
+    print(f"\nIniciando vistoria de {len(produtos)} produto(s)...\n")
+
+    imagens_corrigidas = 0
+    descricoes_traduzidas = 0
+
+    for indice, produto in enumerate(produtos):
+        nome = produto.get("nome", "Produto sem nome")
+        print(f"[{indice + 1}/{len(produtos)}] {nome}")
+
+        # Garante que o campo cores existe (compatibilidade com produtos antigos)
+        if "cores" not in produto:
+            produto["cores"] = []
+
+        imagem_relativa = produto.get("imagem", "")
+
+        if imagem_relativa:
+            caminho_completo = os.path.join(PASTA_SITE, imagem_relativa)
+
+            if detectar_fundo_problematico(caminho_completo):
+                print("  Fundo problemático detectado. Reprocessando...")
+
+                novo_caminho = reprocessar_imagem_produto(produto)
+
+                if novo_caminho:
+                    produto["imagem"] = novo_caminho
+                    imagens_corrigidas += 1
+                    print("  Imagem corrigida.")
+                else:
+                    print("  Não foi possível corrigir a imagem.")
+            else:
+                print("  Imagem OK.")
+
+        descricao_original = produto.get("descricao_original", "")
+
+        if not descricao_original:
+            descricao_completa = produto.get("descricao", "")
+
+            marcador_inicio = "Informações do produto:\n"
+            marcador_fim = "\n\nObservação:"
+
+            if marcador_inicio in descricao_completa and marcador_fim in descricao_completa:
+                inicio = descricao_completa.index(marcador_inicio) + len(marcador_inicio)
+                fim = descricao_completa.index(marcador_fim)
+                descricao_original = descricao_completa[inicio:fim].strip()
+
+                if descricao_original.startswith("- Consulte detalhes"):
+                    descricao_original = ""
+
+        if descricao_original:
+            texto_traduzido, foi_traduzido = traduzir_se_ingles(descricao_original)
+
+            if foi_traduzido:
+                print("  Descrição em inglês detectada. Traduzindo...")
+
+                produto["descricao_original"] = texto_traduzido
+                produto["descricao"] = gerar_texto_produto(nome, texto_traduzido)
+
+                descricoes_traduzidas += 1
+                print("  Descrição traduzida.")
+            else:
+                produto["descricao_original"] = descricao_original
+
+    salvar_lista_produtos(produtos)
+
+    print("\n=== Vistoria concluída ===")
+    print(f"Imagens corrigidas: {imagens_corrigidas}")
+    print(f"Descrições traduzidas: {descricoes_traduzidas}")
+
 
 def menu():
     print("\n=== BELLA IMPORTS BOT ===\n")
     print("1 - Importar produto")
     print("2 - Deletar produto")
     print("3 - Editar produto")
-    print("4 - Sair\n")
+    print("4 - Vistoriar produtos (consertar imagens e traduzir descrições)")
+    print("5 - Sair\n")
 
     return input("Escolha: ").strip()
 
@@ -494,6 +799,9 @@ def main():
             editar_produto()
 
         elif escolha == "4":
+            vistoriar_produtos()
+
+        elif escolha == "5":
             print("\nEncerrando.")
             break
 
