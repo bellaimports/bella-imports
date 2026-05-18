@@ -1,21 +1,12 @@
 [
   {
-    "nome": "pocket blush",
-    "descricao": "pocket blush\n\nProduto selecionado pela Bella Imports.\n\nInformações do produto:\nUm pouco de blush para um pouco de rubor. Nosso blush em creme para viagem desperta bochechas e lábios com um rubor acetinado e difuso que derrete suavemente e permanece o dia todo.\n\nObservação:\nDisponibilidade e condições devem ser confirmadas antes da compra.",
-    "imagem": "imagens_processadas/pocket-blush.png",
-    "url_origem": "https://www.rhodeskin.com/products/pocket-blush-candy-apple",
-    "categoria": "Rhode",
-    "descricao_original": "Um pouco de blush para um pouco de rubor. Nosso blush em creme para viagem desperta bochechas e lábios com um rubor acetinado e difuso que derrete suavemente e permanece o dia todo.",
-    "cores": []
-  },
-  {
     "nome": "spotwear",
     "descricao": "spotwear\n\nProduto selecionado pela Bella Imports.\n\nInformações do produto:\nNossos adesivos de alto desempenho são 100% hidrocolóides e clinicamente comprovados para minimizar a aparência de manchas. Chegando em cinco formatos exclusivos.\n\nObservação:\nDisponibilidade e condições devem ser confirmadas antes da compra.",
     "imagem": "imagens_processadas/spotwear.png",
     "url_origem": "https://www.rhodeskin.com/products/spotwear-daisy",
     "categoria": "Rhode",
     "descricao_original": "Nossos adesivos de alto desempenho são 100% hidrocolóides e clinicamente comprovados para minimizar a aparência de manchas. Chegando em cinco formatos exclusivos.",
-    "preco": "R$189,90",
+    "preco": "R$190,00",
     "cores": []
   },
   {
@@ -55,7 +46,7 @@
     "url_origem": "https://www.rhodeskin.com/products/the-spot-care-set",
     "categoria": "Rhode",
     "descricao_original": "Pegue três de nossos produtos essenciais de cuidados com a pele favoritos para peles com tendência a manchas.",
-    "preco": "R$570",
+    "preco": "R$570,00",
     "cores": []
   },
   {
@@ -122,7 +113,7 @@
     "nome": "peptide lip treatment",
     "descricao": "peptide lip treatment\n\nProduto selecionado pela Bella Imports.\n\nInformações do produto:\nCuidado labial é cuidado com a pele. Peptide Lip Treatment é uma fórmula nutritiva que hidrata e reabastece os lábios, deixando um acabamento brilhante e de alto brilho.\n\nObservação:\nDisponibilidade e condições devem ser confirmadas antes da compra.",
     "descricao_original": "Cuidado labial é cuidado com a pele. Peptide Lip Treatment é uma fórmula nutritiva que hidrata e reabastece os lábios, deixando um acabamento brilhante e de alto brilho.",
-    "preco": "R$289,90",
+    "preco": "R$290,00",
     "imagem": "imagens_processadas/peptide-lip-treatment.png",
     "url_origem": "https://www.rhodeskin.com/products/peptide-lip-treatment-strawberry-glaze",
     "categoria": "Rhode",
@@ -142,7 +133,7 @@
     "nome": "barrier butter 100ml",
     "descricao": "barrier butter 100ml\n\nProduto selecionado pela Bella Imports.\n\nInformações do produto:\nUm bálsamo hidratante intensivo para hidratação profunda durante a noite. Nossa fórmula suave e amanteigada é uma adição superalimentada à sua rotina noturna. Ajuda a fortalecer a barreira da pele e a reter a hidratação por até 24 horas* - restaurando a suavidade e elasticidade naturais da pele.\n\nObservação:\nDisponibilidade e condições devem ser confirmadas antes da compra.",
     "descricao_original": "Um bálsamo hidratante intensivo para hidratação profunda durante a noite. Nossa fórmula suave e amanteigada é uma adição superalimentada à sua rotina noturna. Ajuda a fortalecer a barreira da pele e a reter a hidratação por até 24 horas* - restaurando a suavidade e elasticidade naturais da pele.",
-    "preco": "R$379,90",
+    "preco": "R$380,00",
     "imagem": "imagens_processadas/barrier-butter.png",
     "url_origem": "https://www.rhodeskin.com/products/barrier-butter?variant=45828632871150",
     "categoria": "Rhode",
@@ -262,7 +253,7 @@
     "nome": "pocket blush",
     "descricao": "pocket blush\n\nProduto selecionado pela Bella Imports.\n\nInformações do produto:\nUm pouco de blush para um pouco de rubor. Nosso blush em creme para viagem desperta bochechas e lábios com um rubor acetinado e difuso que derrete suavemente e permanece o dia todo.\n\nObservação:\nDisponibilidade e condições devem ser confirmadas antes da compra.",
     "descricao_original": "Um pouco de blush para um pouco de rubor. Nosso blush em creme para viagem desperta bochechas e lábios com um rubor acetinado e difuso que derrete suavemente e permanece o dia todo.",
-    "preco": "R$289,90",
+    "preco": "R$290,00",
     "imagem": "imagens_processadas/pocket-blush.png",
     "url_origem": "https://www.rhodeskin.com/products/pocket-blush-candy-apple",
     "categoria": "Rhode",
