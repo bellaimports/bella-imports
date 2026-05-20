@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Painel Bella Imports</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f6f6f6;
+            color: #111;
+        }
+
+        header {
+            background: #b30000;
+            color: white;
+            padding: 18px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 22px;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        main {
+            padding: 24px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .login-box {
+            max-width: 380px;
+            margin: 80px auto;
+            background: white;
+            padding: 28px;
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(0,0,0,.08);
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 14px;
+            margin-bottom: 22px;
+            box-shadow: 0 8px 24px rgba(0,0,0,.06);
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            margin-bottom: 14px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        textarea {
+            min-height: 120px;
+        }
+
+        button {
+            background: #b30000;
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            font-size: 15px;
+            cursor: pointer;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #8f0000;
+        }
+
+        .btn-secundario {
+            background: #111;
+        }
+
+        .btn-danger {
+            background: #555;
+        }
+
+        .mensagem {
+            background: #e7ffe7;
+            border: 1px solid #9fd99f;
+            padding: 14px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .erro {
+            background: #ffe7e7;
+            border: 1px solid #cc8888;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 14px;
+        }
+
+        .produto {
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            gap: 18px;
+            border-top: 1px solid #eee;
+            padding-top: 18px;
+            margin-top: 18px;
+        }
+
+        .produto img {
+            width: 160px;
+            height: 160px;
+            object-fit: contain;
+            background: #fafafa;
+            border: 1px solid #eee;
+            border-radius: 10px;
+        }
+
+        .produto h3 {
+            margin-top: 0;
+        }
+
+        .acoes {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 700px) {
+            .produto {
+                grid-template-columns: 1fr;
+            }
+
+            .produto img {
+                width: 100%;
+                height: 220px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+{% if tela == "login" %}
+
+    <div class="login-box">
+        <h1>Painel Bella Imports</h1>
+        <p>Digite a senha para acessar.</p>
+
+        {% if erro %}
+            <div class="erro">{{ erro }}</div>
+        {% endif %}
+
+        <form method="POST" action="/login">
+            <input type="password" name="senha" placeholder="Senha">
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
+
+{% else %}
+
+    <header>
+        <h1>Bella Imports Admin</h1>
+        <a href="/logout">Sair</a>
+    </header>
+
+    <main>
+        {% if mensagem %}
+            <div class="mensagem">{{ mensagem }}</div>
+        {% endif %}
+
+        <section class="card">
+            <h2>Importar produto por URL</h2>
+
+            <form method="POST" action="/importar">
+                <label>URL do produto</label>
+                <input type="text" name="url" placeholder="Cole o link do produto">
+
+                <label>Preço final</label>
+                <input type="text" name="preco" placeholder="Ex: 129,90">
+
+                <label>Categoria</label>
+                <input type="text" name="categoria" placeholder="Ex: Perfumes, Maquiagem, Skincare">
+
+                <label>Cores disponíveis</label>
+                <input type="text" name="cores" placeholder="Ex: Vermelho, Rosa, Preto">
+
+                <button type="submit">Importar produto</button>
+            </form>
+        </section>
+
+        <section class="card">
+            <h2>Vistoria automática</h2>
+            <p>Executa a função do bot que corrige imagens problemáticas e traduz descrições em inglês.</p>
+
+            <form method="POST" action="/vistoriar">
+                <button type="submit" class="btn-secundario">Vistoriar produtos</button>
+            </form>
+        </section>
+
+        <section class="card">
+            <h2>Produtos cadastrados</h2>
+
+            {% if produtos %}
+                {% for produto in produtos %}
+                    <div class="produto">
+                        <div>
+                            {% if produto.imagem %}
+                                <img src="/{{ produto.imagem }}?v={{ loop.index }}">
+                            {% else %}
+                                <img src="">
+                            {% endif %}
+                        </div>
+
+                        <div>
+                            <form method="POST" action="/editar/{{ loop.index0 }}">
+                                <label>Nome</label>
+                                <input type="text" name="nome" value="{{ produto.nome }}">
+
+                                <label>Descrição</label>
+                                <textarea name="descricao">{{ produto.descricao }}</textarea>
+
+                                <label>Preço</label>
+                                <input type="text" name="preco" value="{{ produto.preco }}">
+
+                                <label>Categoria</label>
+                                <input type="text" name="categoria" value="{{ produto.categoria }}">
+
+                                <label>Cores</label>
+                                <input
+                                    type="text"
+                                    name="cores"
+                                    value="{{ produto.cores | join(', ') if produto.cores else '' }}"
+                                >
+
+                                <div class="acoes">
+                                    <button type="submit">Salvar alterações</button>
+                                </div>
+                            </form>
+
+                            <form method="POST" action="/deletar/{{ loop.index0 }}" style="margin-top: 10px;">
+                                <button type="submit" class="btn-danger">Deletar produto</button>
+                            </form>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>Nenhum produto cadastrado.</p>
+            {% endif %}
+        </section>
+    </main>
+
+{% endif %}
+
+</body>
+</html>
